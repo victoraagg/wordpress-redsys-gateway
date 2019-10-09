@@ -5,6 +5,8 @@
  * Plugin Name: WordPress Redsys Button
  * Version: 1.0.0
  * Author: Víctor Alonso
+ * Plugin URI: https://www.victoralonso.me/
+ * Description: Botones de pago con RedSys sin necesidad de tener instalado WooCommerce. Configuración muy sencilla.
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
