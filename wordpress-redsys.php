@@ -1,6 +1,6 @@
 <?php
 /**
- * WooCommerce Redsys Button
+ * WordPress Redsys Button
  *
  * Plugin Name: WordPress Redsys Button
  * Version: 1.0.0
