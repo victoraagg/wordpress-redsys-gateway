@@ -18,8 +18,10 @@ function redsysbutton_func($atts = null, $content = null) {
     $environment = get_option('_redsys_environment');
     if($environment == 'TEST'){
         $url_tpv = get_option('_redsys_url_tpv_test');
+        $clave = get_option('_redsys_keycode_test');
     }else{
         $url_tpv = get_option('_redsys_url_tpv_prod');
+        $clave = get_option('_redsys_keycode_prod');
     }
     $version = "HMAC_SHA256_V1"; 
     $clave = get_option('_redsys_keycode');
