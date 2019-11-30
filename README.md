@@ -1,10 +1,8 @@
 # wordpress-redsys-gateway
 Botones de pago de WordPress - RedSys
-
 Sin necesidad de tener instalado WooCommerce
 
-## Modo de uso del shortocde
-
+## Modo de uso del shortcode
 - Crear nuevo botón en el admin y asignar precio
 ![admin wp](https://bthebrand.es/uploads/redsys-example-1.png)
 - Colocar el shortcode con el ID del botón creado, la cantidad y el ID de pedido que corresponda
