@@ -32,31 +32,18 @@ function redsys_menu() {
 add_action( 'admin_menu', 'redsys_menu' );
 
 function get_info_redsys_response($response) {
-	//Ds_Date
-	//Ds_Hour
-	//Ds_SecurePayment
-	//Ds_Amount
-	//Ds_Currency
-	//Ds_Order
-	//Ds_MerchantCode
-	//Ds_Terminal
-	//Ds_Response (0000 a 0099) -> Autorizada
-	//Ds_TransactionType
-	//Ds_MerchantData
-	//Ds_AuthorisationCode
-	//Ds_ConsumerLanguage
-	//Ds_Card_Country
-	//Ds_Card_Brand
 	$apiObj = new RedsysAPI;
 	$encoded = $apiObj->decodeMerchantParameters($response);
 	$decoded = json_decode($encoded);
 	$response = $decoded->Ds_Response;
 	$order = $decoded->Ds_Order;
-	$order_decoded = explode('-',$order);
-	$post_id = $order_decoded[0];
-	if($response == '0000'){
+	$post_id = substr($order, 6);
+	$post = get_post($post_id);
+	if($response == '0000' && $post->post_type == 'book'){
 		update_post_meta( $post_id, '_book_active', 'Y' );
-		echo '<div class="alert dx-alert dx-alert-success">Transacción '.$order.' autorizada</div>';
+		echo '<div class="alert dx-alert dx-alert-success">Reserva '.$order.' autorizada</div>';
+	}elseif($response == '0000' && $post->post_type == 'inscription'){
+		echo '<div class="alert dx-alert dx-alert-success">Inscripción '.$order.' autorizada</div>';
 	}else{
 		echo '<div class="alert dx-alert dx-alert-danger">Transacción '.$order.' no autorizada</div>';
 	}
